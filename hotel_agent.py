@@ -12,6 +12,7 @@ import hashlib
 import datetime
 import time
 import inspect
+from dotenv import load_dotenv
 from aws_sdk_bedrock_runtime.client import (
     BedrockRuntimeClient,
     InvokeModelWithBidirectionalStreamOperationInput,
@@ -1247,6 +1248,9 @@ async def main(debug=False):
 
 if __name__ == "__main__":
     import argparse
+
+    # Load environment variables from .env file
+    load_dotenv()
 
     parser = argparse.ArgumentParser(description="Nova Sonic Python Streaming")
     parser.add_argument("--debug", action="store_true", help="Enable debug mode")
